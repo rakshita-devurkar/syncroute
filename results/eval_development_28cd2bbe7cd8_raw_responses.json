@@ -1,0 +1,554 @@
+{
+  "evt_0009": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "RETRY_LATER",
+        "confidence": 0.74,
+        "probabilities": {
+          "REVIEW_RESYNC": 0.0,
+          "ENGINEER_REVIEW": 0.22,
+          "FIX_PERMISSIONS": 0.0,
+          "REVIEW_CONFIGURATION": 0.0,
+          "RETRY_LATER": 0.78,
+          "REAUTHENTICATE": 0.0,
+          "CHECK_CONNECTIVITY": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 921,
+      "output_tokens": 100
+    }
+  },
+  "evt_0010": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "RETRY_LATER",
+        "confidence": 0.77,
+        "probabilities": {
+          "CHECK_CONNECTIVITY": 0.0,
+          "ENGINEER_REVIEW": 0.19,
+          "REAUTHENTICATE": 0.0,
+          "FIX_PERMISSIONS": 0.0,
+          "RETRY_LATER": 0.81,
+          "REVIEW_CONFIGURATION": 0.0,
+          "REVIEW_RESYNC": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 919,
+      "output_tokens": 100
+    }
+  },
+  "evt_0011": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "RETRY_LATER",
+        "confidence": 0.61,
+        "probabilities": {
+          "CHECK_CONNECTIVITY": 0.0,
+          "FIX_PERMISSIONS": 0.0,
+          "RETRY_LATER": 0.67,
+          "REAUTHENTICATE": 0.0,
+          "REVIEW_CONFIGURATION": 0.0,
+          "ENGINEER_REVIEW": 0.33,
+          "REVIEW_RESYNC": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 917,
+      "output_tokens": 100
+    }
+  },
+  "evt_0020": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "ENGINEER_REVIEW",
+        "confidence": 0.87,
+        "probabilities": {
+          "REVIEW_RESYNC": 0.0,
+          "REAUTHENTICATE": 0.09,
+          "REVIEW_CONFIGURATION": 0.0,
+          "CHECK_CONNECTIVITY": 0.0,
+          "RETRY_LATER": 0.0,
+          "ENGINEER_REVIEW": 0.89,
+          "FIX_PERMISSIONS": 0.02
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 916,
+      "output_tokens": 101
+    }
+  },
+  "evt_0021": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "ENGINEER_REVIEW",
+        "confidence": 0.91,
+        "probabilities": {
+          "FIX_PERMISSIONS": 0.01,
+          "CHECK_CONNECTIVITY": 0.0,
+          "REVIEW_CONFIGURATION": 0.0,
+          "RETRY_LATER": 0.0,
+          "REVIEW_RESYNC": 0.0,
+          "REAUTHENTICATE": 0.06,
+          "ENGINEER_REVIEW": 0.93
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 917,
+      "output_tokens": 101
+    }
+  },
+  "evt_0022": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "ENGINEER_REVIEW",
+        "confidence": 0.84,
+        "probabilities": {
+          "REVIEW_CONFIGURATION": 0.0,
+          "REAUTHENTICATE": 0.12,
+          "FIX_PERMISSIONS": 0.01,
+          "RETRY_LATER": 0.0,
+          "ENGINEER_REVIEW": 0.87,
+          "CHECK_CONNECTIVITY": 0.0,
+          "REVIEW_RESYNC": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 914,
+      "output_tokens": 101
+    }
+  },
+  "evt_0034": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "ENGINEER_REVIEW",
+        "confidence": 0.53,
+        "probabilities": {
+          "FIX_PERMISSIONS": 0.39,
+          "CHECK_CONNECTIVITY": 0.0,
+          "REVIEW_CONFIGURATION": 0.01,
+          "RETRY_LATER": 0.0,
+          "REVIEW_RESYNC": 0.0,
+          "REAUTHENTICATE": 0.0,
+          "ENGINEER_REVIEW": 0.6
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 907,
+      "output_tokens": 101
+    }
+  },
+  "evt_0035": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "ENGINEER_REVIEW",
+        "confidence": 0.56,
+        "probabilities": {
+          "REVIEW_RESYNC": 0.0,
+          "REAUTHENTICATE": 0.0,
+          "CHECK_CONNECTIVITY": 0.0,
+          "RETRY_LATER": 0.0,
+          "FIX_PERMISSIONS": 0.36,
+          "ENGINEER_REVIEW": 0.63,
+          "REVIEW_CONFIGURATION": 0.01
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 906,
+      "output_tokens": 101
+    }
+  },
+  "evt_0036": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "FIX_PERMISSIONS",
+        "confidence": 0.61,
+        "probabilities": {
+          "REAUTHENTICATE": 0.0,
+          "ENGINEER_REVIEW": 0.32,
+          "REVIEW_CONFIGURATION": 0.01,
+          "CHECK_CONNECTIVITY": 0.0,
+          "FIX_PERMISSIONS": 0.67,
+          "REVIEW_RESYNC": 0.0,
+          "RETRY_LATER": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 918,
+      "output_tokens": 101
+    }
+  },
+  "evt_0043": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "FIX_PERMISSIONS",
+        "confidence": 0.62,
+        "probabilities": {
+          "FIX_PERMISSIONS": 0.68,
+          "ENGINEER_REVIEW": 0.32,
+          "REAUTHENTICATE": 0.0,
+          "RETRY_LATER": 0.0,
+          "CHECK_CONNECTIVITY": 0.0,
+          "REVIEW_RESYNC": 0.0,
+          "REVIEW_CONFIGURATION": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 927,
+      "output_tokens": 101
+    }
+  },
+  "evt_0044": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "FIX_PERMISSIONS",
+        "confidence": 0.53,
+        "probabilities": {
+          "REVIEW_RESYNC": 0.0,
+          "CHECK_CONNECTIVITY": 0.0,
+          "RETRY_LATER": 0.0,
+          "REVIEW_CONFIGURATION": 0.0,
+          "REAUTHENTICATE": 0.0,
+          "ENGINEER_REVIEW": 0.4,
+          "FIX_PERMISSIONS": 0.6
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 917,
+      "output_tokens": 101
+    }
+  },
+  "evt_0056": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "REVIEW_CONFIGURATION",
+        "confidence": 0.9,
+        "probabilities": {
+          "RETRY_LATER": 0.0,
+          "CHECK_CONNECTIVITY": 0.0,
+          "REVIEW_CONFIGURATION": 0.91,
+          "REVIEW_RESYNC": 0.0,
+          "FIX_PERMISSIONS": 0.0,
+          "ENGINEER_REVIEW": 0.09,
+          "REAUTHENTICATE": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 917,
+      "output_tokens": 99
+    }
+  },
+  "evt_0057": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "REVIEW_CONFIGURATION",
+        "confidence": 0.57,
+        "probabilities": {
+          "REVIEW_RESYNC": 0.0,
+          "ENGINEER_REVIEW": 0.36,
+          "CHECK_CONNECTIVITY": 0.0,
+          "REAUTHENTICATE": 0.0,
+          "FIX_PERMISSIONS": 0.0,
+          "RETRY_LATER": 0.0,
+          "REVIEW_CONFIGURATION": 0.64
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 921,
+      "output_tokens": 99
+    }
+  },
+  "evt_0062": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "CHECK_CONNECTIVITY",
+        "confidence": 0.89,
+        "probabilities": {
+          "CHECK_CONNECTIVITY": 0.91,
+          "FIX_PERMISSIONS": 0.0,
+          "REVIEW_RESYNC": 0.0,
+          "REAUTHENTICATE": 0.0,
+          "REVIEW_CONFIGURATION": 0.01,
+          "RETRY_LATER": 0.0,
+          "ENGINEER_REVIEW": 0.08
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 911,
+      "output_tokens": 102
+    }
+  },
+  "evt_0069": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "CHECK_CONNECTIVITY",
+        "confidence": 0.58,
+        "probabilities": {
+          "FIX_PERMISSIONS": 0.0,
+          "RETRY_LATER": 0.01,
+          "ENGINEER_REVIEW": 0.35,
+          "CHECK_CONNECTIVITY": 0.64,
+          "REAUTHENTICATE": 0.0,
+          "REVIEW_RESYNC": 0.0,
+          "REVIEW_CONFIGURATION": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 920,
+      "output_tokens": 102
+    }
+  },
+  "evt_0070": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "CHECK_CONNECTIVITY",
+        "confidence": 0.63,
+        "probabilities": {
+          "REAUTHENTICATE": 0.0,
+          "RETRY_LATER": 0.03,
+          "ENGINEER_REVIEW": 0.28,
+          "FIX_PERMISSIONS": 0.0,
+          "REVIEW_RESYNC": 0.0,
+          "REVIEW_CONFIGURATION": 0.0,
+          "CHECK_CONNECTIVITY": 0.69
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 915,
+      "output_tokens": 102
+    }
+  },
+  "evt_0082": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "REVIEW_RESYNC",
+        "confidence": 0.89,
+        "probabilities": {
+          "REVIEW_CONFIGURATION": 0.0,
+          "REAUTHENTICATE": 0.0,
+          "RETRY_LATER": 0.01,
+          "REVIEW_RESYNC": 0.91,
+          "CHECK_CONNECTIVITY": 0.0,
+          "ENGINEER_REVIEW": 0.08,
+          "FIX_PERMISSIONS": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 913,
+      "output_tokens": 100
+    }
+  },
+  "evt_0083": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "REVIEW_RESYNC",
+        "confidence": 0.74,
+        "probabilities": {
+          "ENGINEER_REVIEW": 0.2,
+          "REVIEW_CONFIGURATION": 0.01,
+          "CHECK_CONNECTIVITY": 0.0,
+          "REAUTHENTICATE": 0.0,
+          "RETRY_LATER": 0.02,
+          "FIX_PERMISSIONS": 0.0,
+          "REVIEW_RESYNC": 0.77
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 922,
+      "output_tokens": 100
+    }
+  },
+  "evt_0086": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "ENGINEER_REVIEW",
+        "confidence": 0.96,
+        "probabilities": {
+          "FIX_PERMISSIONS": 0.0,
+          "RETRY_LATER": 0.03,
+          "REVIEW_RESYNC": 0.0,
+          "ENGINEER_REVIEW": 0.97,
+          "REAUTHENTICATE": 0.0,
+          "REVIEW_CONFIGURATION": 0.0,
+          "CHECK_CONNECTIVITY": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 912,
+      "output_tokens": 101
+    }
+  },
+  "evt_0087": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "ENGINEER_REVIEW",
+        "confidence": 0.96,
+        "probabilities": {
+          "REVIEW_CONFIGURATION": 0.01,
+          "ENGINEER_REVIEW": 0.96,
+          "CHECK_CONNECTIVITY": 0.0,
+          "FIX_PERMISSIONS": 0.0,
+          "RETRY_LATER": 0.03,
+          "REVIEW_RESYNC": 0.0,
+          "REAUTHENTICATE": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 917,
+      "output_tokens": 101
+    }
+  },
+  "evt_0088": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "ENGINEER_REVIEW",
+        "confidence": 0.96,
+        "probabilities": {
+          "REAUTHENTICATE": 0.0,
+          "ENGINEER_REVIEW": 0.97,
+          "FIX_PERMISSIONS": 0.0,
+          "CHECK_CONNECTIVITY": 0.0,
+          "REVIEW_RESYNC": 0.0,
+          "REVIEW_CONFIGURATION": 0.02,
+          "RETRY_LATER": 0.01
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 914,
+      "output_tokens": 101
+    }
+  },
+  "evt_0089": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "ENGINEER_REVIEW",
+        "confidence": 0.95,
+        "probabilities": {
+          "REVIEW_CONFIGURATION": 0.0,
+          "RETRY_LATER": 0.02,
+          "REVIEW_RESYNC": 0.0,
+          "CHECK_CONNECTIVITY": 0.0,
+          "REAUTHENTICATE": 0.01,
+          "FIX_PERMISSIONS": 0.01,
+          "ENGINEER_REVIEW": 0.96
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 921,
+      "output_tokens": 101
+    }
+  },
+  "evt_0090": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "ENGINEER_REVIEW",
+        "confidence": 0.9,
+        "probabilities": {
+          "REVIEW_CONFIGURATION": 0.0,
+          "RETRY_LATER": 0.0,
+          "REVIEW_RESYNC": 0.0,
+          "CHECK_CONNECTIVITY": 0.0,
+          "REAUTHENTICATE": 0.07,
+          "FIX_PERMISSIONS": 0.01,
+          "ENGINEER_REVIEW": 0.92
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 918,
+      "output_tokens": 101
+    }
+  },
+  "evt_0091": {
+    "model": "jev-1.13.0",
+    "answers": {
+      "next_recovery_workflow": {
+        "type": "choice",
+        "choice": "ENGINEER_REVIEW",
+        "confidence": 0.97,
+        "probabilities": {
+          "ENGINEER_REVIEW": 0.96,
+          "REAUTHENTICATE": 0.02,
+          "RETRY_LATER": 0.01,
+          "FIX_PERMISSIONS": 0.01,
+          "REVIEW_RESYNC": 0.0,
+          "CHECK_CONNECTIVITY": 0.0,
+          "REVIEW_CONFIGURATION": 0.0
+        }
+      }
+    },
+    "usage": {
+      "input_tokens": 915,
+      "output_tokens": 101
+    }
+  }
+}

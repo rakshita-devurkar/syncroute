@@ -1,0 +1,483 @@
+{
+  "manifest": {
+    "run_id": "eval_development_9fe68fec437b",
+    "split": "development",
+    "mode": "live",
+    "dataset_hash": "887f8f539fc1aa15c35391160c82922ea7a17f9c792339e9c5edd54c589544aa",
+    "dataset_events": 42,
+    "model_requested": "jev-1.13.0",
+    "model_version_returned": "jev-1.13.0",
+    "prompt_version": "prompt-2026.09.2",
+    "rules_version": "rules-2026.09.1",
+    "policy_version": "policy-2026.09.1",
+    "pipeline_version": "pipeline-2026.09.1",
+    "eval_version": "eval-2026.09.1",
+    "thresholds": {
+      "confidence": 0.8,
+      "margin": 0.15
+    },
+    "run_timestamp": "2026-09-22T00:29:16.074672+00:00",
+    "notes": "threshold selection on development split"
+  },
+  "rules_only": {
+    "label": "Rules only (baseline)",
+    "events": 42,
+    "fixture_responses_used": false,
+    "exact_accuracy": 0.5714285714285714,
+    "correct": 24,
+    "macro_f1": 0.6629857071033541,
+    "per_route": {
+      "RETRY_LATER": {
+        "support": 6,
+        "predicted": 3,
+        "true_positives": 3,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "REAUTHENTICATE": {
+        "support": 8,
+        "predicted": 5,
+        "true_positives": 5,
+        "precision": 1.0,
+        "recall": 0.625,
+        "f1": 0.7692307692307693
+      },
+      "FIX_PERMISSIONS": {
+        "support": 5,
+        "predicted": 0,
+        "true_positives": 0,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null
+      },
+      "REVIEW_CONFIGURATION": {
+        "support": 5,
+        "predicted": 3,
+        "true_positives": 3,
+        "precision": 1.0,
+        "recall": 0.6,
+        "f1": 0.7499999999999999
+      },
+      "CHECK_CONNECTIVITY": {
+        "support": 5,
+        "predicted": 2,
+        "true_positives": 2,
+        "precision": 1.0,
+        "recall": 0.4,
+        "f1": 0.5714285714285715
+      },
+      "REVIEW_RESYNC": {
+        "support": 5,
+        "predicted": 3,
+        "true_positives": 3,
+        "precision": 1.0,
+        "recall": 0.6,
+        "f1": 0.7499999999999999
+      },
+      "ENGINEER_REVIEW": {
+        "support": 8,
+        "predicted": 26,
+        "true_positives": 8,
+        "precision": 0.3076923076923077,
+        "recall": 1.0,
+        "f1": 0.47058823529411764
+      }
+    },
+    "confusion_matrix": {
+      "RETRY_LATER": {
+        "RETRY_LATER": 3,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 3
+      },
+      "REAUTHENTICATE": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 5,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 3
+      },
+      "FIX_PERMISSIONS": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 5
+      },
+      "REVIEW_CONFIGURATION": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 3,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 2
+      },
+      "CHECK_CONNECTIVITY": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 2,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 3
+      },
+      "REVIEW_RESYNC": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 3,
+        "ENGINEER_REVIEW": 2
+      },
+      "ENGINEER_REVIEW": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 8
+      }
+    },
+    "non_review_coverage": {
+      "value": 0.38095238095238093,
+      "numerator": 16,
+      "denominator": 42,
+      "meaning": "Share of events assigned a workflow other than engineering review. This is workflow assignment, not automatic remediation."
+    },
+    "incorrect_non_review_rate": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 16,
+      "meaning": "Share of non-review assignments that went to the wrong workflow."
+    },
+    "engineer_review_recall": {
+      "value": 1.0,
+      "numerator": 8,
+      "denominator": 8
+    },
+    "decision_sources": {
+      "POLICY_ESCALATION": 2,
+      "DETERMINISTIC_RULE": 16,
+      "BASELINE_UNMATCHED": 24
+    },
+    "counts": {
+      "rule_hits": 16,
+      "model_calls": 0,
+      "uncertainty_fallbacks": 0,
+      "policy_escalations": 2,
+      "post_route_policy_overrides": 0,
+      "api_error_fallbacks": 0,
+      "classification_unavailable": 0
+    },
+    "latency_ms": {
+      "end_to_end_p50": 0.015396042726933956,
+      "end_to_end_p95": 0.021631573326885686,
+      "end_to_end_samples": 42,
+      "model_call_p50": null,
+      "model_call_p95": null,
+      "model_call_samples": 0,
+      "note": "End-to-end figures include API error fallbacks, which are also broken out under counts."
+    },
+    "usage": {
+      "input_tokens": null,
+      "output_tokens": null,
+      "responses_with_usage": 0,
+      "estimated_cost_usd": null,
+      "cost_note": "Unavailable: the API returned no token usage for this run."
+    },
+    "rules_unmatched_subset": {
+      "events": 24,
+      "exact_accuracy": 0.25,
+      "non_review_coverage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 24
+      },
+      "incorrect_non_review_rate": {
+        "value": null,
+        "numerator": 0,
+        "denominator": 0
+      },
+      "meaning": "The cases the deterministic rules could not decide. This is where a classifier can add or destroy value; overall figures hide it."
+    }
+  },
+  "hybrid": {
+    "label": "Hybrid: rules + policy + Jev (live)",
+    "events": 42,
+    "fixture_responses_used": false,
+    "exact_accuracy": 0.9523809523809523,
+    "correct": 40,
+    "macro_f1": 0.963718820861678,
+    "per_route": {
+      "RETRY_LATER": {
+        "support": 6,
+        "predicted": 6,
+        "true_positives": 6,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "REAUTHENTICATE": {
+        "support": 8,
+        "predicted": 6,
+        "true_positives": 6,
+        "precision": 1.0,
+        "recall": 0.75,
+        "f1": 0.8571428571428571
+      },
+      "FIX_PERMISSIONS": {
+        "support": 5,
+        "predicted": 5,
+        "true_positives": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "REVIEW_CONFIGURATION": {
+        "support": 5,
+        "predicted": 5,
+        "true_positives": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "CHECK_CONNECTIVITY": {
+        "support": 5,
+        "predicted": 5,
+        "true_positives": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "REVIEW_RESYNC": {
+        "support": 5,
+        "predicted": 5,
+        "true_positives": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "ENGINEER_REVIEW": {
+        "support": 8,
+        "predicted": 10,
+        "true_positives": 8,
+        "precision": 0.8,
+        "recall": 1.0,
+        "f1": 0.888888888888889
+      }
+    },
+    "confusion_matrix": {
+      "RETRY_LATER": {
+        "RETRY_LATER": 6,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 0
+      },
+      "REAUTHENTICATE": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 6,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 2
+      },
+      "FIX_PERMISSIONS": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 5,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 0
+      },
+      "REVIEW_CONFIGURATION": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 5,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 0
+      },
+      "CHECK_CONNECTIVITY": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 5,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 0
+      },
+      "REVIEW_RESYNC": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 5,
+        "ENGINEER_REVIEW": 0
+      },
+      "ENGINEER_REVIEW": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 8
+      }
+    },
+    "non_review_coverage": {
+      "value": 0.7619047619047619,
+      "numerator": 32,
+      "denominator": 42,
+      "meaning": "Share of events assigned a workflow other than engineering review. This is workflow assignment, not automatic remediation."
+    },
+    "incorrect_non_review_rate": {
+      "value": 0.0,
+      "numerator": 0,
+      "denominator": 32,
+      "meaning": "Share of non-review assignments that went to the wrong workflow."
+    },
+    "engineer_review_recall": {
+      "value": 1.0,
+      "numerator": 8,
+      "denominator": 8
+    },
+    "decision_sources": {
+      "POLICY_ESCALATION": 2,
+      "DETERMINISTIC_RULE": 16,
+      "MODEL": 19,
+      "UNCERTAINTY_FALLBACK": 5
+    },
+    "counts": {
+      "rule_hits": 16,
+      "model_calls": 24,
+      "uncertainty_fallbacks": 5,
+      "policy_escalations": 2,
+      "post_route_policy_overrides": 0,
+      "api_error_fallbacks": 0,
+      "classification_unavailable": 0
+    },
+    "latency_ms": {
+      "end_to_end_p50": 337.7358545549214,
+      "end_to_end_p95": 427.5763836456463,
+      "end_to_end_samples": 42,
+      "model_call_p50": 370.8075414178893,
+      "model_call_p95": 452.50402222154656,
+      "model_call_samples": 24,
+      "note": "End-to-end figures include API error fallbacks, which are also broken out under counts."
+    },
+    "usage": {
+      "input_tokens": 24707,
+      "output_tokens": 2418,
+      "responses_with_usage": 24,
+      "estimated_cost_usd": 0.001037694,
+      "cost_note": "Estimated at $0.042/M input tokens (price as of 2026-09-21). Output tokens are documented as free."
+    },
+    "rules_unmatched_subset": {
+      "events": 24,
+      "exact_accuracy": 0.9166666666666666,
+      "non_review_coverage": {
+        "value": 0.6666666666666666,
+        "numerator": 16,
+        "denominator": 24
+      },
+      "incorrect_non_review_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 16
+      },
+      "meaning": "The cases the deterministic rules could not decide. This is where a classifier can add or destroy value; overall figures hide it."
+    }
+  },
+  "threshold_sweep": [
+    {
+      "confidence_threshold": 0.5,
+      "margin_threshold": 0.0,
+      "exact_accuracy": 1.0,
+      "non_review_coverage": 0.8095238095238095,
+      "incorrect_non_review_rate": 0.0,
+      "incorrect_non_review_count": 0,
+      "non_review_count": 34
+    },
+    {
+      "confidence_threshold": 0.6,
+      "margin_threshold": 0.05,
+      "exact_accuracy": 1.0,
+      "non_review_coverage": 0.8095238095238095,
+      "incorrect_non_review_rate": 0.0,
+      "incorrect_non_review_count": 0,
+      "non_review_count": 34
+    },
+    {
+      "confidence_threshold": 0.7,
+      "margin_threshold": 0.1,
+      "exact_accuracy": 1.0,
+      "non_review_coverage": 0.8095238095238095,
+      "incorrect_non_review_rate": 0.0,
+      "incorrect_non_review_count": 0,
+      "non_review_count": 34
+    },
+    {
+      "confidence_threshold": 0.75,
+      "margin_threshold": 0.1,
+      "exact_accuracy": 0.9523809523809523,
+      "non_review_coverage": 0.7619047619047619,
+      "incorrect_non_review_rate": 0.0,
+      "incorrect_non_review_count": 0,
+      "non_review_count": 32
+    },
+    {
+      "confidence_threshold": 0.8,
+      "margin_threshold": 0.15,
+      "exact_accuracy": 0.9523809523809523,
+      "non_review_coverage": 0.7619047619047619,
+      "incorrect_non_review_rate": 0.0,
+      "incorrect_non_review_count": 0,
+      "non_review_count": 32
+    },
+    {
+      "confidence_threshold": 0.85,
+      "margin_threshold": 0.2,
+      "exact_accuracy": 0.9523809523809523,
+      "non_review_coverage": 0.7619047619047619,
+      "incorrect_non_review_rate": 0.0,
+      "incorrect_non_review_count": 0,
+      "non_review_count": 32
+    },
+    {
+      "confidence_threshold": 0.9,
+      "margin_threshold": 0.25,
+      "exact_accuracy": 0.9285714285714286,
+      "non_review_coverage": 0.7380952380952381,
+      "incorrect_non_review_rate": 0.0,
+      "incorrect_non_review_count": 0,
+      "non_review_count": 31
+    },
+    {
+      "confidence_threshold": 0.95,
+      "margin_threshold": 0.35,
+      "exact_accuracy": 0.9285714285714286,
+      "non_review_coverage": 0.7380952380952381,
+      "incorrect_non_review_rate": 0.0,
+      "incorrect_non_review_count": 0,
+      "non_review_count": 31
+    }
+  ]
+}

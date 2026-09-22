@@ -1,0 +1,483 @@
+{
+  "manifest": {
+    "run_id": "eval_heldout_39b8f392841c",
+    "split": "heldout",
+    "mode": "live",
+    "dataset_hash": "84a707a01888cd9d46af8e4effce9b9d6a873f2c90a32c4435991713fe47b5d1",
+    "dataset_events": 60,
+    "model_requested": "jev-1.13.0",
+    "model_version_returned": "jev-1.13.0",
+    "prompt_version": "prompt-2026.09.2",
+    "rules_version": "rules-2026.09.1",
+    "policy_version": "policy-2026.09.1",
+    "pipeline_version": "pipeline-2026.09.1",
+    "eval_version": "eval-2026.09.1",
+    "thresholds": {
+      "confidence": 0.8,
+      "margin": 0.15
+    },
+    "run_timestamp": "2026-09-22T01:40:10.533678+00:00",
+    "notes": "FROZEN held-out run: prompt-2026.09.2, rules-2026.09.1, policy-2026.09.1, thresholds 0.80/0.15 fixed on development split before this run"
+  },
+  "rules_only": {
+    "label": "Rules only (baseline)",
+    "events": 60,
+    "fixture_responses_used": false,
+    "exact_accuracy": 0.26666666666666666,
+    "correct": 16,
+    "macro_f1": 0.4452380952380952,
+    "per_route": {
+      "RETRY_LATER": {
+        "support": 10,
+        "predicted": 5,
+        "true_positives": 5,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "REAUTHENTICATE": {
+        "support": 9,
+        "predicted": 3,
+        "true_positives": 3,
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5
+      },
+      "FIX_PERMISSIONS": {
+        "support": 8,
+        "predicted": 0,
+        "true_positives": 0,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null
+      },
+      "REVIEW_CONFIGURATION": {
+        "support": 8,
+        "predicted": 3,
+        "true_positives": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      },
+      "CHECK_CONNECTIVITY": {
+        "support": 8,
+        "predicted": 2,
+        "true_positives": 2,
+        "precision": 1.0,
+        "recall": 0.25,
+        "f1": 0.4
+      },
+      "REVIEW_RESYNC": {
+        "support": 8,
+        "predicted": 0,
+        "true_positives": 0,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null
+      },
+      "ENGINEER_REVIEW": {
+        "support": 9,
+        "predicted": 47,
+        "true_positives": 6,
+        "precision": 0.1276595744680851,
+        "recall": 0.6666666666666666,
+        "f1": 0.21428571428571427
+      }
+    },
+    "confusion_matrix": {
+      "RETRY_LATER": {
+        "RETRY_LATER": 5,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 5
+      },
+      "REAUTHENTICATE": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 3,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 6
+      },
+      "FIX_PERMISSIONS": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 8
+      },
+      "REVIEW_CONFIGURATION": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 8
+      },
+      "CHECK_CONNECTIVITY": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 2,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 6
+      },
+      "REVIEW_RESYNC": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 8
+      },
+      "ENGINEER_REVIEW": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 3,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 6
+      }
+    },
+    "non_review_coverage": {
+      "value": 0.21666666666666667,
+      "numerator": 13,
+      "denominator": 60,
+      "meaning": "Share of events assigned a workflow other than engineering review. This is workflow assignment, not automatic remediation."
+    },
+    "incorrect_non_review_rate": {
+      "value": 0.23076923076923078,
+      "numerator": 3,
+      "denominator": 13,
+      "meaning": "Share of non-review assignments that went to the wrong workflow."
+    },
+    "engineer_review_recall": {
+      "value": 0.6666666666666666,
+      "numerator": 6,
+      "denominator": 9
+    },
+    "decision_sources": {
+      "POLICY_ESCALATION": 3,
+      "DETERMINISTIC_RULE": 13,
+      "BASELINE_UNMATCHED": 44
+    },
+    "counts": {
+      "rule_hits": 13,
+      "model_calls": 0,
+      "uncertainty_fallbacks": 0,
+      "policy_escalations": 3,
+      "post_route_policy_overrides": 0,
+      "api_error_fallbacks": 0,
+      "classification_unavailable": 0
+    },
+    "latency_ms": {
+      "end_to_end_p50": 0.015208497643470764,
+      "end_to_end_p95": 0.020435673650354147,
+      "end_to_end_samples": 60,
+      "model_call_p50": null,
+      "model_call_p95": null,
+      "model_call_samples": 0,
+      "note": "End-to-end figures include API error fallbacks, which are also broken out under counts."
+    },
+    "usage": {
+      "input_tokens": null,
+      "output_tokens": null,
+      "responses_with_usage": 0,
+      "estimated_cost_usd": null,
+      "cost_note": "Unavailable: the API returned no token usage for this run."
+    },
+    "rules_unmatched_subset": {
+      "events": 44,
+      "exact_accuracy": 0.06818181818181818,
+      "non_review_coverage": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 44
+      },
+      "incorrect_non_review_rate": {
+        "value": null,
+        "numerator": 0,
+        "denominator": 0
+      },
+      "meaning": "The cases the deterministic rules could not decide. This is where a classifier can add or destroy value; overall figures hide it."
+    }
+  },
+  "hybrid": {
+    "label": "Hybrid: rules + policy + Jev (live)",
+    "events": 60,
+    "fixture_responses_used": false,
+    "exact_accuracy": 0.8833333333333333,
+    "correct": 53,
+    "macro_f1": 0.8887218045112782,
+    "per_route": {
+      "RETRY_LATER": {
+        "support": 10,
+        "predicted": 9,
+        "true_positives": 9,
+        "precision": 1.0,
+        "recall": 0.9,
+        "f1": 0.9473684210526316
+      },
+      "REAUTHENTICATE": {
+        "support": 9,
+        "predicted": 6,
+        "true_positives": 6,
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1": 0.8
+      },
+      "FIX_PERMISSIONS": {
+        "support": 8,
+        "predicted": 8,
+        "true_positives": 8,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "REVIEW_CONFIGURATION": {
+        "support": 8,
+        "predicted": 11,
+        "true_positives": 8,
+        "precision": 0.7272727272727273,
+        "recall": 1.0,
+        "f1": 0.8421052631578948
+      },
+      "CHECK_CONNECTIVITY": {
+        "support": 8,
+        "predicted": 8,
+        "true_positives": 8,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "REVIEW_RESYNC": {
+        "support": 8,
+        "predicted": 8,
+        "true_positives": 8,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "ENGINEER_REVIEW": {
+        "support": 9,
+        "predicted": 10,
+        "true_positives": 6,
+        "precision": 0.6,
+        "recall": 0.6666666666666666,
+        "f1": 0.631578947368421
+      }
+    },
+    "confusion_matrix": {
+      "RETRY_LATER": {
+        "RETRY_LATER": 9,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 1
+      },
+      "REAUTHENTICATE": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 6,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 3
+      },
+      "FIX_PERMISSIONS": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 8,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 0
+      },
+      "REVIEW_CONFIGURATION": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 8,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 0
+      },
+      "CHECK_CONNECTIVITY": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 8,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 0
+      },
+      "REVIEW_RESYNC": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 0,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 8,
+        "ENGINEER_REVIEW": 0
+      },
+      "ENGINEER_REVIEW": {
+        "RETRY_LATER": 0,
+        "REAUTHENTICATE": 0,
+        "FIX_PERMISSIONS": 0,
+        "REVIEW_CONFIGURATION": 3,
+        "CHECK_CONNECTIVITY": 0,
+        "REVIEW_RESYNC": 0,
+        "ENGINEER_REVIEW": 6
+      }
+    },
+    "non_review_coverage": {
+      "value": 0.8333333333333334,
+      "numerator": 50,
+      "denominator": 60,
+      "meaning": "Share of events assigned a workflow other than engineering review. This is workflow assignment, not automatic remediation."
+    },
+    "incorrect_non_review_rate": {
+      "value": 0.06,
+      "numerator": 3,
+      "denominator": 50,
+      "meaning": "Share of non-review assignments that went to the wrong workflow."
+    },
+    "engineer_review_recall": {
+      "value": 0.6666666666666666,
+      "numerator": 6,
+      "denominator": 9
+    },
+    "decision_sources": {
+      "POLICY_ESCALATION": 3,
+      "DETERMINISTIC_RULE": 13,
+      "MODEL": 39,
+      "UNCERTAINTY_FALLBACK": 5
+    },
+    "counts": {
+      "rule_hits": 13,
+      "model_calls": 44,
+      "uncertainty_fallbacks": 5,
+      "policy_escalations": 3,
+      "post_route_policy_overrides": 0,
+      "api_error_fallbacks": 0,
+      "classification_unavailable": 0
+    },
+    "latency_ms": {
+      "end_to_end_p50": 349.00754143018275,
+      "end_to_end_p95": 435.1348295691423,
+      "end_to_end_samples": 60,
+      "model_call_p50": 365.87200046051294,
+      "model_call_p95": 437.59017336415127,
+      "model_call_samples": 44,
+      "note": "End-to-end figures include API error fallbacks, which are also broken out under counts."
+    },
+    "usage": {
+      "input_tokens": 45394,
+      "output_tokens": 4419,
+      "responses_with_usage": 44,
+      "estimated_cost_usd": 0.0019065479999999999,
+      "cost_note": "Estimated at $0.042/M input tokens (price as of 2026-09-21). Output tokens are documented as free."
+    },
+    "rules_unmatched_subset": {
+      "events": 44,
+      "exact_accuracy": 0.9090909090909091,
+      "non_review_coverage": {
+        "value": 0.8409090909090909,
+        "numerator": 37,
+        "denominator": 44
+      },
+      "incorrect_non_review_rate": {
+        "value": 0.0,
+        "numerator": 0,
+        "denominator": 37
+      },
+      "meaning": "The cases the deterministic rules could not decide. This is where a classifier can add or destroy value; overall figures hide it."
+    }
+  },
+  "threshold_sweep": [
+    {
+      "confidence_threshold": 0.5,
+      "margin_threshold": 0.0,
+      "exact_accuracy": 0.9166666666666666,
+      "non_review_coverage": 0.8833333333333333,
+      "incorrect_non_review_rate": 0.07547169811320754,
+      "incorrect_non_review_count": 4,
+      "non_review_count": 53
+    },
+    {
+      "confidence_threshold": 0.6,
+      "margin_threshold": 0.05,
+      "exact_accuracy": 0.9,
+      "non_review_coverage": 0.85,
+      "incorrect_non_review_rate": 0.058823529411764705,
+      "incorrect_non_review_count": 3,
+      "non_review_count": 51
+    },
+    {
+      "confidence_threshold": 0.7,
+      "margin_threshold": 0.1,
+      "exact_accuracy": 0.9,
+      "non_review_coverage": 0.85,
+      "incorrect_non_review_rate": 0.058823529411764705,
+      "incorrect_non_review_count": 3,
+      "non_review_count": 51
+    },
+    {
+      "confidence_threshold": 0.75,
+      "margin_threshold": 0.1,
+      "exact_accuracy": 0.9,
+      "non_review_coverage": 0.85,
+      "incorrect_non_review_rate": 0.058823529411764705,
+      "incorrect_non_review_count": 3,
+      "non_review_count": 51
+    },
+    {
+      "confidence_threshold": 0.8,
+      "margin_threshold": 0.15,
+      "exact_accuracy": 0.8833333333333333,
+      "non_review_coverage": 0.8333333333333334,
+      "incorrect_non_review_rate": 0.06,
+      "incorrect_non_review_count": 3,
+      "non_review_count": 50
+    },
+    {
+      "confidence_threshold": 0.85,
+      "margin_threshold": 0.2,
+      "exact_accuracy": 0.85,
+      "non_review_coverage": 0.8,
+      "incorrect_non_review_rate": 0.0625,
+      "incorrect_non_review_count": 3,
+      "non_review_count": 48
+    },
+    {
+      "confidence_threshold": 0.9,
+      "margin_threshold": 0.25,
+      "exact_accuracy": 0.8333333333333334,
+      "non_review_coverage": 0.7833333333333333,
+      "incorrect_non_review_rate": 0.06382978723404255,
+      "incorrect_non_review_count": 3,
+      "non_review_count": 47
+    },
+    {
+      "confidence_threshold": 0.95,
+      "margin_threshold": 0.35,
+      "exact_accuracy": 0.8166666666666667,
+      "non_review_coverage": 0.7666666666666667,
+      "incorrect_non_review_rate": 0.06521739130434782,
+      "incorrect_non_review_count": 3,
+      "non_review_count": 46
+    }
+  ]
+}

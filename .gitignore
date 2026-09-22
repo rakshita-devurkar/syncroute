@@ -1,0 +1,29 @@
+# Secrets - never commit
+.env
+.env.*
+!.env.example
+
+# Local databases and run artifacts
+*.db
+*.sqlite
+*.sqlite3
+runs/
+
+# Evaluation results ARE committed: manifests make each run self-describing
+# and the evaluation view reads them on a fresh clone.
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

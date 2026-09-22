@@ -1,0 +1,152 @@
+{
+  "note": "Six synthetic demonstration scenarios. These are invented events, not logs from any real product, and every provider name is a placeholder. 'shows' and 'expected_behaviour' are narration for the operator; they are never sent to the model.",
+  "scenarios": [
+    {
+      "scenario_id": "demo_429",
+      "title": "1. Known rate limit never reaches the model",
+      "shows": "A recognised 429 is decided by a deterministic rule, so no classification call is made and no tokens are spent.",
+      "expected_behaviour": "RETRY_LATER via rule R001, model_called = false, retry scheduled from the provider's Retry-After value.",
+      "declared_outcome": "recovers_after_retry",
+      "event": {
+        "event_id": "demo_evt_429",
+        "incident_id": "demo_inc_001",
+        "connector_id": "saas_api_demo_01",
+        "provider": "ExampleCRM",
+        "connector_type": "saas_api",
+        "occurred_at": "2026-09-22T09:05:00Z",
+        "failure_stage": "fetch_records",
+        "operation": "list contacts",
+        "error_message": "Too many requests for this account. Retry after the indicated interval.",
+        "http_status": 429,
+        "retry_after": "60",
+        "attempt_number": 1,
+        "retry_budget_remaining": 3,
+        "consecutive_failure_count": 1,
+        "first_failure_at": "2026-09-22T09:05:00Z",
+        "last_success_at": "2026-09-22T08:35:00Z"
+      }
+    },
+    {
+      "scenario_id": "demo_consent",
+      "title": "2. Unfamiliar consent wording reaches Jev",
+      "shows": "No rule matches this phrasing because it never says 'revoked'. The classifier reads the language and proposes reconnecting.",
+      "expected_behaviour": "Model proposes REAUTHENTICATE and both uncertainty gates pass.",
+      "declared_outcome": "recovers_after_reconnect",
+      "event": {
+        "event_id": "demo_evt_consent",
+        "incident_id": "demo_inc_002",
+        "connector_id": "saas_api_demo_02",
+        "provider": "ExampleDocs",
+        "connector_type": "saas_api",
+        "occurred_at": "2026-09-22T09:20:00Z",
+        "failure_stage": "fetch_records",
+        "operation": "read documents",
+        "error_message": "The application's consent was withdrawn. Establish a new grant before requesting records.",
+        "attempt_number": 1,
+        "retry_budget_remaining": 3,
+        "consecutive_failure_count": 1,
+        "first_failure_at": "2026-09-22T09:20:00Z",
+        "last_success_at": "2026-09-22T07:20:00Z"
+      }
+    },
+    {
+      "scenario_id": "demo_scope",
+      "title": "3. Authenticated but missing a read scope",
+      "shows": "A 403 that is genuinely a permission gap. There is deliberately no rule mapping 403 to permissions, so this is the classifier's judgement.",
+      "expected_behaviour": "Model proposes FIX_PERMISSIONS; the simulated task names no grant it was not given.",
+      "declared_outcome": "needs_admin",
+      "event": {
+        "event_id": "demo_evt_scope",
+        "incident_id": "demo_inc_003",
+        "connector_id": "saas_api_demo_03",
+        "provider": "ExampleCRM",
+        "connector_type": "saas_api",
+        "occurred_at": "2026-09-22T09:35:00Z",
+        "failure_stage": "fetch_records",
+        "operation": "read contacts",
+        "error_message": "Your application is authenticated but has not been approved for the read:contacts scope.",
+        "http_status": 403,
+        "auth_state": "valid",
+        "attempt_number": 1,
+        "retry_budget_remaining": 3,
+        "consecutive_failure_count": 1,
+        "first_failure_at": "2026-09-22T09:35:00Z",
+        "last_success_at": "2026-09-22T08:05:00Z"
+      }
+    },
+    {
+      "scenario_id": "demo_vague",
+      "title": "4. A deliberately vague access error",
+      "shows": "Nothing in this message distinguishes a bad credential from a missing entitlement. Whatever the model returns is displayed honestly, including an overconfident answer.",
+      "expected_behaviour": "Either an explicit ENGINEER_REVIEW selection or an uncertainty fallback. The event inspector labels which one occurred.",
+      "declared_outcome": "unresolved",
+      "event": {
+        "event_id": "demo_evt_vague",
+        "incident_id": "demo_inc_004",
+        "connector_id": "saas_api_demo_04",
+        "provider": "ExampleBilling",
+        "connector_type": "saas_api",
+        "occurred_at": "2026-09-22T09:50:00Z",
+        "failure_stage": "fetch_records",
+        "operation": "read invoices",
+        "error_message": "Access could not be completed at this time.",
+        "http_status": 403,
+        "attempt_number": 1,
+        "retry_budget_remaining": 3,
+        "consecutive_failure_count": 1,
+        "first_failure_at": "2026-09-22T09:50:00Z",
+        "last_success_at": "2026-09-22T08:50:00Z"
+      }
+    },
+    {
+      "scenario_id": "demo_exhausted",
+      "title": "5. Exhausted retries override a retry",
+      "shows": "The same 429 as scenario 1, but the budget is gone. Policy escalates before rules and before any model call, so nothing can schedule another attempt.",
+      "expected_behaviour": "ENGINEER_REVIEW via policy P001, model_called = false.",
+      "declared_outcome": "unresolved",
+      "event": {
+        "event_id": "demo_evt_exhausted",
+        "incident_id": "demo_inc_005",
+        "connector_id": "saas_api_demo_01",
+        "provider": "ExampleCRM",
+        "connector_type": "saas_api",
+        "occurred_at": "2026-09-22T10:05:00Z",
+        "failure_stage": "fetch_records",
+        "operation": "list contacts",
+        "error_message": "Too many requests for this account. Retry after the indicated interval.",
+        "http_status": 429,
+        "retry_after": "60",
+        "attempt_number": 5,
+        "retry_budget_remaining": 0,
+        "consecutive_failure_count": 5,
+        "first_failure_at": "2026-09-22T09:05:00Z",
+        "last_success_at": "2026-09-22T08:35:00Z"
+      }
+    },
+    {
+      "scenario_id": "demo_resync",
+      "title": "6. Expired cursor reaches resync assessment but not past approval",
+      "shows": "A resync assessment is created and stops at a human approval gate. Approval changes simulation state only; no resync is ever started.",
+      "expected_behaviour": "REVIEW_RESYNC via rule R020, workflow status PENDING_APPROVAL, requires_approval = true.",
+      "declared_outcome": "needs_approval",
+      "event": {
+        "event_id": "demo_evt_resync",
+        "incident_id": "demo_inc_006",
+        "connector_id": "database_demo_07",
+        "provider": "PostgresSource",
+        "connector_type": "database",
+        "occurred_at": "2026-09-22T10:20:00Z",
+        "failure_stage": "resume_stream",
+        "operation": "resume from stored LSN",
+        "error_message": "Saved replication offset predates the oldest retained log segment",
+        "auth_state": "valid",
+        "replication_position_state": "expired",
+        "attempt_number": 1,
+        "retry_budget_remaining": 3,
+        "consecutive_failure_count": 1,
+        "first_failure_at": "2026-09-22T10:20:00Z",
+        "last_success_at": "2026-09-22T06:20:00Z"
+      }
+    }
+  ]
+}

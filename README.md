@@ -144,7 +144,7 @@ Run the app (fixture mode, fully offline):
 Run the tests:
 
 ```bash
-.venv/bin/python -m pytest          # 40 offline tests
+.venv/bin/python -m pytest          # 58 offline tests
 .venv/bin/python -m pytest -m live  # 2 opt-in tests that call the real API
 ```
 
@@ -244,6 +244,14 @@ why the distinction is enforced in code.
   cost what a wrong `RETRY_LATER` costs; real use should gate per consequence.
 - **Confidence is not correctness.** It is a statistic derived from the
   distribution's shape, as TypeSafe's own documentation states.
+- **The top-two margin gate has never independently fired.** Across 68 real
+  classifications, no case had confidence >= 0.80 *and* margin < 0.15; the one
+  low-margin case (0.11) was already rejected on confidence. The gate is kept
+  because a confidently-split distribution is possible in principle, but on
+  this evidence it has done no work and should not be credited with any.
+- **The dataset never exercises the positive evidence states.** No event sets
+  `exists`, `reachable` or `available`, so the "unknown is not false" contract
+  is verified by unit tests rather than by the benchmark itself.
 - **Synthetic error text is cleaner than production logs.** Real messages
   arrive truncated, multilingual, wrapped in stack traces and mixed with
   unrelated output.
@@ -272,7 +280,7 @@ src/syncroute/
 data/                       Dataset, demo scenarios, fixtures, review sheet
 docs/HUMAN_REVIEW.md        What a person still has to sign off on
 scripts/                    Dataset builder, fixture capture, review sheet
-tests/                      40 offline tests, 2 opt-in live tests
+tests/                      58 offline tests, 2 opt-in live tests
 ```
 
 ## License

@@ -160,8 +160,6 @@ RULES: tuple[Rule, ...] = (
     ),
 )
 
-RULES_BY_ID = {rule.rule_id: rule for rule in RULES}
-
 
 def evaluate_rules(event: SyncFailureEvent, facts: PolicyFacts) -> RuleResult:
     """Apply every rule. Conflicting outcomes escalate rather than guess."""

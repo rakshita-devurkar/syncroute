@@ -192,11 +192,6 @@ def cmd_evaluate(args: argparse.Namespace) -> int:
     return 0
 
 
-def cmd_sweep(args: argparse.Namespace) -> int:
-    args.sweep = True
-    return cmd_evaluate(args)
-
-
 def cmd_route(args: argparse.Namespace) -> int:
     settings = get_settings()
     mode = args.mode or settings.default_mode
@@ -269,15 +264,6 @@ def main(argv: Optional[list[str]] = None) -> int:
     ev.add_argument("--notes", default="")
     add_common(ev)
     ev.set_defaults(func=cmd_evaluate)
-
-    sw = sub.add_parser("sweep", help="Evaluate and always print the threshold tradeoff.")
-    sw.add_argument("--split", choices=["development", "heldout"], default="development")
-    sw.add_argument("--confidence", type=float, default=0.80)
-    sw.add_argument("--margin", type=float, default=0.15)
-    sw.add_argument("--output", default=str(RESULTS_DIR))
-    sw.add_argument("--notes", default="")
-    add_common(sw)
-    sw.set_defaults(func=cmd_sweep)
 
     rt = sub.add_parser("route", help="Route a single scenario or JSON event.")
     rt.add_argument("--scenario")

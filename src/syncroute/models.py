@@ -120,8 +120,6 @@ class AttemptOutcome(str, enum.Enum):
 
     COMPLETED = "completed"
     FAILED = "failed"
-    ABANDONED = "abandoned"
-    PENDING = "pending"
 
 
 class DecisionSource(str, enum.Enum):
@@ -276,9 +274,6 @@ class PolicyFacts(BaseModel):
     same_failure_persisted_after_recovery: bool
     persisted_recovery_actions: list[Route] = Field(default_factory=list)
     recovery_loop_detected: bool
-    distinct_recovery_actions_tried: int
-    minutes_since_first_failure: Optional[float] = None
-    minutes_since_last_success: Optional[float] = None
     retry_after_seconds: Optional[float] = None
     retry_after_parse_failed: bool = False
 

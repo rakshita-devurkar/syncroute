@@ -101,15 +101,6 @@ def derive_policy_facts(event: SyncFailureEvent, now: Optional[datetime] = None)
         same_failure_persisted_after_recovery=bool(persisted_actions),
         persisted_recovery_actions=persisted_actions,
         recovery_loop_detected=len(persisted_actions) >= 2,
-        distinct_recovery_actions_tried=len({a.action for a in event.previous_recovery_attempts}),
-        minutes_since_first_failure=(
-            (now - event.first_failure_at).total_seconds() / 60.0
-            if event.first_failure_at
-            else None
-        ),
-        minutes_since_last_success=(
-            (now - event.last_success_at).total_seconds() / 60.0 if event.last_success_at else None
-        ),
         retry_after_seconds=retry_after_seconds,
         retry_after_parse_failed=parse_failed,
     )

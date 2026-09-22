@@ -12,7 +12,7 @@ it did. Run it against synthetic events by default.
 from __future__ import annotations
 
 import re
-from typing import Any, Iterable
+from typing import Any
 
 from .models import SyncFailureEvent
 
@@ -121,9 +121,3 @@ def sanitize_mapping(payload: Any) -> tuple[Any, list[str]]:
 
     return _walk(payload), sorted(labels)
 
-
-def describe_redactions(labels: Iterable[str]) -> str:
-    labels = list(labels)
-    if not labels:
-        return "No secret-shaped values matched."
-    return "Redacted: " + ", ".join(labels)

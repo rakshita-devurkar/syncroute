@@ -28,8 +28,6 @@ from .models import (
 )
 from .sanitize import sanitize_mapping
 
-SCHEMA_VERSION = 1
-
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS events (
     event_id TEXT PRIMARY KEY,
@@ -282,16 +280,6 @@ class Storage:
                 ),
             )
 
-    def get_workflow(self, run_id: str, event_id: str) -> Optional[WorkflowPlan]:
-        row = self._conn.execute(
-            "SELECT plan_json FROM workflow_runs WHERE run_id = ? AND event_id = ?",
-            (run_id, event_id),
-        ).fetchone()
-        if row is None:
-            return None
-        return WorkflowPlan.model_validate_json(row["plan_json"])
-
-    # ---------------------------------------------------------------- feedback
 
     def add_feedback(
         self, run_id: str, event_id: str, reviewer: str, corrected_route: str, note: str = ""
@@ -336,13 +324,3 @@ class Storage:
                  json.dumps(metrics, default=str)),
             )
 
-    def list_evaluation_runs(self, mode: Optional[str] = None) -> list[dict[str, Any]]:
-        if mode:
-            rows = self._conn.execute(
-                "SELECT * FROM evaluation_runs WHERE mode = ? ORDER BY created_at DESC", (mode,)
-            ).fetchall()
-        else:
-            rows = self._conn.execute(
-                "SELECT * FROM evaluation_runs ORDER BY created_at DESC"
-            ).fetchall()
-        return [dict(r) for r in rows]

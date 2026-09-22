@@ -81,14 +81,29 @@ provider behaviour, particularly:
 - that `503` never encodes a permanent configuration fault
 - that `invalid_grant` always means the grant, not the client registration
 
-## 5. The redactor, before any non-synthetic input
+## 5. A dataset gap worth closing in the next version
+
+Every structured evidence field is a tri-state (`unknown` / positive /
+negative), and the distinction between "nobody checked" and "checked and fine"
+is the foundation of the event model. **No event in the dataset sets a positive
+value** — not one `exists`, `reachable` or `available`.
+
+So the benchmark only ever exercises the negative branch. That the positive
+branch behaves correctly is established by `tests/test_tristate_evidence.py`,
+not by the 102 events. A future dataset version should include healthy-evidence
+cases: a 403 where the resource demonstrably exists, a timeout where the host is
+demonstrably reachable. Adding them changes the dataset hash and correctly
+invalidates the current frozen numbers, which is why they were not added
+retroactively.
+
+## 6. The redactor, before any non-synthetic input
 
 `src/syncroute/sanitize.py` recognises a fixed list of secret shapes. It has not
 been tested against a real error corpus, and it cannot be described as complete.
 Before pointing this at anything but synthetic events, someone should run it over
 a representative sample and look at what it misses.
 
-## 6. The claims in the README
+## 7. The claims in the README
 
 The README states results from a 102-event synthetic dataset. A reviewer should
 confirm that nothing in it reads as a production claim, a statistically decisive

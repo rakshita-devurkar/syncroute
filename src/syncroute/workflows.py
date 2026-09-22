@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import random
 from datetime import datetime, timedelta, timezone
-from typing import Callable, Optional
+from typing import Optional
 
 from .models import (
     PolicyFacts,
@@ -25,8 +25,6 @@ from .models import (
     WorkflowStep,
 )
 from .policy import DEFAULT_SCHEDULING_HORIZON_SECONDS
-
-WORKFLOW_VERSION = "workflows-2026.09.1"
 
 BASE_BACKOFF_SECONDS = 30.0
 MAX_BACKOFF_SECONDS = 900.0
@@ -276,9 +274,6 @@ def _engineer_review_plan(
         steps=steps,
         notes=notes,
     )
-
-
-Handler = Callable[..., WorkflowPlan]
 
 
 def plan_workflow(
